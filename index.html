@@ -1,9 +1,1175 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Site is Live</title>
-  </head>
-  <body>
-    <h1>GitHub Pages is working 🎉</h1>
-  </body>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEP | Immersion Education Partners</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* ======================= RESET & CORE ======================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            /* === LIGHT THEME VARIABLES === */
+            --bg-body: #ffffff;
+            --bg-surface: #f9fafb; 
+            --bg-card: #ffffff;
+            --bg-footer: #0f172a;
+
+            --text-head: #111827;
+            --text-body: #4b5563;
+            --text-muted: #9ca3af;
+            --text-inverse: #ffffff;
+
+            --border-light: #e5e7eb;
+            --border-strong: #d1d5db;
+
+            /* Gold Accents */
+            --brand-gold: #c29d46; 
+            --brand-gold-dark: #a17f2f;
+            --brand-gold-light: #f4e8c6;
+            
+            /* UI Elements */
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 24px;
+            
+            --shadow-subtle: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-float: 0 20px 40px -4px rgba(0,0,0,0.08);
+
+            --font-sans: 'Manrope', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* === DARK THEME VARIABLES === */
+        [data-theme="dark"] {
+            --bg-body: #0a0a0a;
+            --bg-surface: #121212;
+            --bg-card: #181818;
+            --bg-footer: #000000;
+
+            --text-head: #f9fafb;
+            --text-body: #9ca3af;
+            --text-muted: #6b7280;
+            --text-inverse: #ffffff;
+
+            --border-light: #262626;
+            --border-strong: #404040;
+
+            --shadow-subtle: none;
+            --shadow-float: 0 20px 40px -4px rgba(0,0,0,0.5);
+        }
+
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-sans);
+            color: var(--text-head);
+            line-height: 1.2;
+            transition: color 0.5s ease;
+        }
+
+        /* ======================= UTILITIES ======================= */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative; /* For watermark positioning */
+        }
+
+        .section-padding { padding: 8rem 0; }
+        
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.875rem 2rem;
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            transition: var(--transition);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--brand-gold);
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            background-color: var(--brand-gold-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-strong);
+            color: var(--text-head);
+            background: transparent;
+        }
+        .btn-outline:hover {
+            border-color: var(--brand-gold);
+            color: var(--brand-gold);
+        }
+
+        /* ======================= HEADER ======================= */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 0;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.0);
+        }
+
+        header.scrolled {
+            background: var(--bg-body);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        [data-theme="dark"] header.scrolled {
+             background: rgba(10, 10, 10, 0.95);
+             backdrop-filter: blur(10px);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--text-head);
+        }
+
+        /* Updated Logo Size: Larger and bolder */
+        .logo-img {
+            height: 64px; 
+            width: 64px;  
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--brand-gold); /* Added gold border */
+            transition: var(--transition);
+        }
+        
+        header.scrolled .logo-img {
+            height: 50px; 
+            width: 50px;
+        }
+
+        .logo-text {
+            font-family: var(--font-sans);
+            font-weight: 800;
+            font-size: 1.75rem; /* Larger text */
+            letter-spacing: -0.02em;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-body);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--brand-gold); }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-body);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s;
+        }
+        .theme-toggle:hover { color: var(--brand-gold); }
+
+        /* ======================= HERO ======================= */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 5rem;
+            background: var(--bg-body);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* NEW: Watermark Logo Effect */
+        .hero-watermark {
+            position: absolute;
+            left: -10%;
+            top: 20%;
+            width: 600px;
+            height: 600px;
+            background-image: url("https://i.postimg.cc/tRv1d680/Untitled-design-(1).png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.03; /* Very subtle */
+            z-index: 0;
+            pointer-events: none;
+            filter: grayscale(100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 6rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-sans);
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            max-width: 540px;
+            color: var(--text-body);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero-image-wrapper { position: relative; }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-float);
+            padding: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+        }
+
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--brand-gold);
+            border-radius: var(--radius-lg);
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        /* ======================= PARTNERS TICKER ======================= */
+        .partners-section {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-light);
+            background: var(--bg-surface);
+            overflow: hidden;
+        }
+        
+        .partners-title {
+            text-align: center;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            opacity: 0.6;
+        }
+        
+        .partner-logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-body);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* ======================= DIRECTOR ======================= */
+        .director-section {
+            background-color: var(--bg-body);
+        }
+
+        .director-layout {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .director-img {
+            width: 100%;
+            border-radius: var(--radius-md);
+            filter: grayscale(10%);
+        }
+
+        .quote-wrapper h2 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-style: italic;
+            color: var(--brand-gold);
+            margin-bottom: 2rem;
+        }
+
+        .quote-wrapper p {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quote-sig {
+            font-weight: 600;
+            color: var(--text-head);
+            margin-top: 2rem;
+            display: block;
+            border-top: 1px solid var(--border-light);
+            padding-top: 1rem;
+            display: inline-block;
+        }
+
+        /* ======================= DEEP DIVE SERVICES ======================= */
+        .services-deep-dive {
+            background-color: var(--bg-surface);
+        }
+        
+        .service-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+        
+        .service-row:last-child { margin-bottom: 0; }
+        .service-row.reverse { direction: rtl; }
+        .service-row.reverse .service-content { direction: ltr; }
+        
+        .service-image {
+            width: 100%;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-subtle);
+        }
+        
+        .service-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-content p {
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-body);
+        }
+        
+        .feature-list li svg { color: var(--brand-gold); }
+
+        /* ======================= GENERIC FEATURES ======================= */
+        .features-section {
+            background-color: var(--bg-body);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 5rem;
+        }
+
+        .overline {
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.875rem;
+            color: var(--brand-gold);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            padding: 3rem 2rem;
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--brand-gold);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: var(--bg-surface);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brand-gold);
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-light);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p { font-size: 0.95rem; }
+
+        /* ======================= TESTIMONIALS ======================= */
+        .testimonials-section {
+            background-color: var(--bg-surface);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+        }
+        
+        .stars { color: var(--brand-gold); margin-bottom: 1.5rem; display: flex; gap: 4px; }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            color: var(--text-head);
+            line-height: 1.6;
+        }
+        
+        .client-info h5 { font-size: 1rem; margin-bottom: 0.25rem; }
+        .client-info span { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* ======================= NEWSLETTER ======================= */
+        .newsletter-section {
+            background-color: var(--bg-body);
+            text-align: center;
+        }
+        
+        .newsletter-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            padding: 4rem;
+            border-radius: var(--radius-lg);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .newsletter-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: var(--brand-gold);
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+        
+        .input-field {
+            flex: 1;
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-sm);
+            background: var(--bg-body);
+            color: var(--text-body);
+        }
+
+        /* ======================= CONTACT FORM SECTION ======================= */
+        .contact-section {
+            background-color: var(--bg-surface);
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-body);
+            font-size: 1.1rem;
+        }
+        
+        .contact-item svg { color: var(--brand-gold); }
+
+        .contact-form-card {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-head);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.875rem;
+            border: 1px solid var(--border-strong);
+            border-radius: var(--radius-sm);
+            background: var(--bg-body);
+            color: var(--text-body);
+            font-family: var(--font-body);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--brand-gold);
+        }
+        
+        /* ======================= VALUES ======================= */
+        .values-section {
+            background-color: var(--bg-body);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .value-item {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-light);
+        }
+
+        .value-item h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: var(--brand-gold-dark);
+        }
+        
+        [data-theme="dark"] .value-item h4 { color: var(--brand-gold); }
+
+        .value-item p { font-size: 0.95rem; }
+
+        /* ======================= FOOTER ======================= */
+        footer {
+            background: var(--bg-footer);
+            color: var(--text-inverse);
+            padding: 6rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .footer-logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* Footer Logo Sizing */
+        .footer-logo-img {
+            height: 48px;
+            width: 48px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .footer-logo-text {
+            color: #ffffff;
+            font-size: 1.75rem;
+            font-weight: 800;
+            font-family: var(--font-sans);
+            line-height: 1;
+        }
+
+        .footer-desc {
+            color: #9ca3af;
+            max-width: 300px;
+            font-size: 0.95rem;
+        }
+
+        .footer-col h4 {
+            color: #ffffff;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.75rem; }
+        
+        .footer-col a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        .footer-col a:hover { color: #ffffff; }
+
+        .copyright {
+            padding-top: 2rem;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        /* Toast Notification for missing features */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--text-head);
+            color: var(--bg-body);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            max-width: 300px;
+            font-size: 0.9rem;
+            border-left: 4px solid var(--brand-gold);
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ======================= RESPONSIVE ======================= */
+        @media (max-width: 1024px) {
+            .hero-content, .director-layout, .service-row, .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+            .service-row.reverse { direction: ltr; }
+            .hero-text h1 { font-size: 3rem; }
+            .hero-image-wrapper { order: -1; }
+            .grid-2, .grid-3, .bento-grid, .values-grid, .testimonial-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .newsletter-form { flex-direction: column; }
+            .hero-watermark { display: none; } /* Hide watermark on mobile */
+        }
+
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+        
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Toast Notification Container -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#" class="logo">
+                    <!-- Increased Logo Size -->
+                    <img src="https://i.postimg.cc/tRv1d680/Untitled-design-(1).png" alt="IEP" class="logo-img">
+                    <span class="logo-text">IEP</span>
+                </a>
+
+                <nav>
+                    <ul>
+                        <li><a href="#solutions">Solutions</a></li>
+                        <li><a href="#expertise">Expertise</a></li>
+                        <li><a href="#director">Leadership</a></li>
+                        <li><a href="#values">Values</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                        <i data-lucide="moon"></i>
+                    </button>
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <!-- Watermark Logo for visual depth -->
+                <div class="hero-watermark"></div>
+
+                <div class="hero-content">
+                    <div class="hero-text reveal">
+                        <h1>Transforming Education Through Immersion.</h1>
+                        <p>We empower educators and districts to build world-class multilingual communities where every learner thrives.</p>
+                        <div class="hero-btns">
+                            <a href="#solutions" class="btn btn-primary">Our Solutions</a>
+                            <a href="#director" class="btn btn-outline">Meet Leadership</a>
+                        </div>
+                    </div>
+                    <div class="hero-image-wrapper reveal">
+                        <img src="https://i.postimg.cc/wxSjJ4yG/Gemini-Generated-Image-te7jk4te7jk4te7j.png" alt="Classroom Immersion" class="hero-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners / Social Proof -->
+        <section class="partners-section">
+            <div class="container">
+                <p class="partners-title">Trusted By Innovative Districts</p>
+                <div class="partners-grid">
+                    <div class="partner-logo"><i data-lucide="school"></i> District One</div>
+                    <div class="partner-logo"><i data-lucide="library"></i> State Education</div>
+                    <div class="partner-logo"><i data-lucide="globe"></i> Global Learning</div>
+                    <div class="partner-logo"><i data-lucide="graduation-cap"></i> University Partners</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Director Section -->
+        <section class="section-padding director-section" id="director">
+            <div class="container">
+                <div class="director-layout">
+                    <div class="director-img-wrapper reveal">
+                        <img src="https://i.postimg.cc/ryWCFHb3/kane-Aus-Photo.jpg” alt="Executive Director" class="director-img">
+                    </div>
+                    <div class="quote-wrapper reveal">
+                        <h2>"Language is the architecture of opportunity."</h2>
+                        <p>Our mission is rooted in a deep commitment to educational equity. We believe that multilingual education isn't just about language—it's about identity, opportunity, and empowerment.</p>
+                        <span class="quote-sig"> Kane Neubauer, CEO & Founder </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deep Dive Services -->
+        <section class="section-padding services-deep-dive" id="solutions">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="overline">What We Do</span>
+                    <h2>Comprehensive Solutions</h2>
+                </div>
+
+                <!-- Solution 1 -->
+                <div class="service-row reveal">
+                    <div class="service-text">
+                        <div class="service-content">
+                            <h3>Program Planning & Design</h3>
+                            <p>Launching a dual language program requires precision. We guide your team through the entire planning phase to ensure sustainable success.</p>
+                            <ul class="feature-list">
+                                <li><i data-lucide="check-circle"></i> Community needs assessment</li>
+                                <li><i data-lucide="check-circle"></i> Language allocation modeling</li>
+                                <li><i data-lucide="check-circle"></i> Staff recruitment strategies</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="service-media">
+                        <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=2070&auto=format&fit=crop" alt="Planning" class="service-image">
+                    </div>
+                </div>
+
+                <!-- Solution 2 -->
+                <div class="service-row reverse reveal">
+                    <div class="service-text">
+                        <div class="service-content">
+                            <h3>Professional Development</h3>
+                            <p>Equip your educators with research-backed strategies. Our interactive workshops link theory to practice for immediate classroom application.</p>
+                            <ul class="feature-list">
+                                <li><i data-lucide="check-circle"></i> Biliteracy curriculum design</li>
+                                <li><i data-lucide="check-circle"></i> Cross-linguistic transfer strategies</li>
+                                <li><i data-lucide="check-circle"></i> Cultural competence training</li>
+                            </ul>
+                            <a href="#contact" class="btn btn-outline">View Workshops</a>
+                        </div>
+                    </div>
+                    <div class="service-media">
+                         <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop" alt="Training" class="service-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="section-padding features-section" id="expertise">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="overline">Our Expertise</span>
+                    <h2>Why Partner With Us</h2>
+                </div>
+                
+                <div class="bento-grid">
+                    <div class="feature-card reveal">
+                        <div class="icon-box"><i data-lucide="book-open"></i></div>
+                        <h3>Evidence-Based</h3>
+                        <p>Our methodologies are grounded in the latest research on second language acquisition and biliteracy development.</p>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="icon-box"><i data-lucide="compass"></i></div>
+                        <h3>Customized Strategy</h3>
+                        <p>We don't do one-size-fits-all. Every district has unique demographics and needs that we adapt to.</p>
+                    </div>
+                    <div class="feature-card reveal">
+                        <div class="icon-box"><i data-lucide="users"></i></div>
+                        <h3>Community Focus</h3>
+                        <p>We believe families are partners. We help you build bridges between school and home.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="section-padding testimonials-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="overline">Testimonials</span>
+                    <h2>What Educators Say</h2>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card reveal">
+                        <div class="stars">
+                            <i data-lucide="star" size="16" fill="currentColor"></i>
+                            <i data-lucide="star" size="16" fill="currentColor"></i>
+                            <i data-lucide="star" size="16" fill="currentColor"></i>
+                            <i data-lucide="star" size="16" fill="currentColor"></i>
+                            <i data-lucide="star" size="16" fill="currentColor"></i>
+                        </div>
+                        <p class="testimonial-text">"The most useful professional development our district has had in years. The strategies were immediately applicable."</p>
+                        <div class="client-info">
+                            <h5>Sarah M.</h5>
+                            <span>District Coordinator, CA</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card reveal">
+                        <div class="stars">
+                            <i data-lucide="star" size="16" fill="currentColor"></i>
+                            <i data-lucide="star" size="16" fill="currentColor"></i>
+                            <i data-lucide="star" size="16" fill="currentColor"></i>
+                            <i data-lucide="star" size="16" fill="currentColor"></i>
+                            <i data-lucide="star" size="16" fill="currentColor"></i>
+                        </div>
+                        <p class="testimonial-text">"IEP helped us navigate the complex process of launching our dual language program with confidence."</p>
+                        <div class="client-info">
+                            <h5>Dr. James R.</h5>
+                            <span>Principal, TX</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="section-padding newsletter-section">
+            <div class="container">
+                <div class="newsletter-box reveal">
+                    <h2>Stay Updated</h2>
+                    <p>Join our community of educators. Get the latest research and tips delivered to your inbox.</p>
+                    <!-- 
+                        ACTION ITEM: Connect this form to an Email service.
+                        1. Create an account at Formspree.io
+                        2. Create a new form
+                        3. Paste the provided URL into the action="" attribute below
+                    -->
+                    <form class="newsletter-form" action="#" method="POST" onsubmit="event.preventDefault(); showToast('Newsletter: Integrate Mailchimp or ConvertKit here.');">
+                        <input type="email" placeholder="Enter your email address" class="input-field" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="section-padding contact-section" id="contact">
+            <div class="container">
+                <div class="contact-layout">
+                    <div class="contact-info reveal">
+                        <span class="overline">Get in Touch</span>
+                        <h3>Ready to Transform Your District?</h3>
+                        <p style="margin-bottom: 2rem;">Schedule a consultation or send us a message to learn how we can support your immersion goals.</p>
+                        
+                        <div class="contact-item">
+                            <i data-lucide="mail"></i>
+                            <span>hello@iep-partners.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="phone"></i>
+                            <span>(555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i data-lucide="map-pin"></i>
+                            <span>Austin, Texas</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-card reveal">
+                         <!-- 
+                            ACTION ITEM: Connect this form to a backend.
+                            1. Use a service like Netlify Forms or EmailJS.
+                            2. Add name="" attributes to inputs for data handling.
+                        -->
+                        <form action="#" method="POST" onsubmit="event.preventDefault(); showToast('Contact Form: Needs backend service like Formspree or EmailJS.');">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" class="form-control" placeholder="name@school.edu" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" rows="4" class="form-control" placeholder="Tell us about your program needs..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand-col">
+                    <!-- Added Footer Logo -->
+                    <div class="footer-logo-wrapper">
+                        <img src="https://i.postimg.cc/tRv1d680/Untitled-design-(1).png" alt="IEP" class="footer-logo-img">
+                        <span class="footer-logo-text">IEP</span>
+                    </div>
+                    <p class="footer-desc">Transforming education through the power of immersion and dual language strategies.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <!-- Internal anchor links -->
+                        <li><a href="#director">About Us</a></li>
+                        <li><a href="#director">Our Team</a></li>
+                        <!-- Descriptive Tooltip Link -->
+                        <li><a href="javascript:void(0)" onclick="showToast('Careers Page: Link this to an ATS (like Greenhouse) or a static page listing jobs.')">Careers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <!-- VIABLE EXTERNAL LINKS -->
+                        <li><a href="https://carla.umn.edu/immersion/" target="_blank">Research (CARLA)</a></li>
+                        <li><a href="https://www.cal.org/resource-center/" target="_blank">Case Studies (CAL)</a></li>
+                        <!-- Descriptive Tooltip Links -->
+                        <li><a href="javascript:void(0)" onclick="showToast('Blog: Requires a CMS like WordPress or Contentful to publish articles.')">Blog</a></li>
+                        <li><a href="javascript:void(0)" onclick="showToast('Events: Integrate a calendar tool like Calendly or Eventbrite here.')">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Social</h4>
+                    <ul>
+                        <!-- Generic Viable Links -->
+                        <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Immersion Education Partners. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Theme Toggler
+        const toggleBtn = document.getElementById('themeToggle');
+        const htmlEl = document.documentElement;
+        
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlEl.setAttribute('data-theme', savedTheme);
+        updateIcon(savedTheme);
+
+        toggleBtn.addEventListener('click', () => {
+            const current = htmlEl.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            htmlEl.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            updateIcon(next);
+        });
+
+        function updateIcon(theme) {
+            // Re-render icon
+            const iconName = theme === 'light' ? 'moon' : 'sun';
+            toggleBtn.innerHTML = `<i data-lucide="${iconName}"></i>`;
+            lucide.createIcons();
+        }
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
+        // Intersection Observer for Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // TOAST NOTIFICATION SCRIPT
+        // This handles the "Audit Description" feature requested
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = "DEV NOTE: " + message;
+            toast.classList.add('show');
+            
+            // Remove after 4 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+    </script>
+</body>
 </html>
