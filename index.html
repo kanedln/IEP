@@ -1005,7 +1005,7 @@
                         3. Paste the provided URL into the action="" attribute below
                     -->
                     <form class="newsletter-form" action="https://formspree.io/f/mykwwyya" method="POST">
-                        <input type="email" placeholder="Enter your email address" class="input-field" required>
+                        <input type="email" name="email" placeholder="Enter your email address" class="input-field" required>
                         <button type="submit" class="btn btn-primary">Subscribe</button>
                     </form>
                 </div>
@@ -1044,15 +1044,15 @@
                         <form action="https://formspree.io/f/mykwwyya" method="POST">
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                                <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" class="form-control" placeholder="name@school.edu" required>
+                                <input type="email" id="email" class="form-control" name="email" placeholder="name@school.edu" required>
                             </div>
                             <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea id="message" rows="4" class="form-control" placeholder="Tell us about your program needs..." required></textarea>
+                                <textarea id="message" rows="4" class="form-control" name= "message" placeholder="Tell us about your program needs..." required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
                         </form>
