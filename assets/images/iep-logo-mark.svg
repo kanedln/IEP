@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">IEP logo mark</title>
+  <desc id="desc">International Education Partners circular monogram in navy and gold.</desc>
+  <defs>
+    <linearGradient id="gold" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f4e8c6"/>
+      <stop offset="0.52" stop-color="#c29d46"/>
+      <stop offset="1" stop-color="#8a6b21"/>
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="246" fill="#0f172a"/>
+  <circle cx="256" cy="256" r="220" fill="none" stroke="url(#gold)" stroke-width="18"/>
+  <path d="M139 319c38-94 196-94 234 0" fill="none" stroke="url(#gold)" stroke-width="22" stroke-linecap="round"/>
+  <path d="M154 218c45 34 159 34 204 0" fill="none" stroke="#ffffff" stroke-opacity="0.92" stroke-width="16" stroke-linecap="round"/>
+  <text x="256" y="287" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="116" font-weight="800" fill="#ffffff" letter-spacing="4">IEP</text>
+</svg>

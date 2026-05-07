@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Collaborative multilingual classroom</title>
+  <desc id="desc">Branded illustration of educators and students collaborating in a multilingual classroom.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f9fafb"/><stop offset="1" stop-color="#f4e8c6"/></linearGradient>
+    <linearGradient id="navy" x1="0" x2="1"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#273852"/></linearGradient>
+  </defs>
+  <rect width="1200" height="820" rx="40" fill="url(#bg)"/>
+  <rect x="78" y="78" width="1044" height="420" rx="26" fill="#ffffff" stroke="#e5e7eb" stroke-width="6"/>
+  <rect x="130" y="130" width="940" height="300" rx="20" fill="url(#navy)"/>
+  <text x="600" y="238" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="54" font-weight="800" fill="#ffffff">Welcome • Bienvenidos</text>
+  <text x="600" y="314" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="34" fill="#f4e8c6">Language builds opportunity</text>
+  <circle cx="268" cy="600" r="70" fill="#c29d46"/><rect x="178" y="670" width="180" height="88" rx="44" fill="#0f172a"/>
+  <circle cx="492" cy="586" r="66" fill="#d8b46a"/><rect x="406" y="654" width="172" height="92" rx="46" fill="#334155"/>
+  <circle cx="718" cy="586" r="66" fill="#a17f2f"/><rect x="632" y="654" width="172" height="92" rx="46" fill="#1f2937"/>
+  <circle cx="936" cy="600" r="70" fill="#e9d7a2"/><rect x="846" y="670" width="180" height="88" rx="44" fill="#0f172a"/>
+  <path d="M182 526h836" stroke="#c29d46" stroke-width="10" stroke-linecap="round" opacity="0.45"/>
+</svg>

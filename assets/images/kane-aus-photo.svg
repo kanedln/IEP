@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-labelledby="title desc">
+  <title id="title">Executive Director portrait placeholder</title>
+  <desc id="desc">Branded portrait card for IEP executive leadership.</desc>
+  <defs><linearGradient id="portrait" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#111827"/><stop offset="1" stop-color="#334155"/></linearGradient></defs>
+  <rect width="900" height="1100" rx="42" fill="#f9fafb"/>
+  <rect x="56" y="56" width="788" height="988" rx="36" fill="url(#portrait)"/>
+  <circle cx="450" cy="360" r="150" fill="#c29d46"/>
+  <path d="M242 828c58-178 154-266 208-266s150 88 208 266" fill="#ffffff" opacity="0.92"/>
+  <path d="M286 828h328" stroke="#c29d46" stroke-width="20" stroke-linecap="round"/>
+  <text x="450" y="955" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="54" font-weight="800" fill="#ffffff">Kane Neubauer</text>
+  <text x="450" y="1018" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="34" fill="#f4e8c6">Executive Director</text>
+</svg>

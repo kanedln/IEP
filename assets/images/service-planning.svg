@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" role="img" aria-labelledby="title desc">
+  <title id="title">Program planning and design</title>
+  <desc id="desc">Branded illustration of program planning tools and multilingual education strategy.</desc>
+  <rect width="1100" height="760" rx="36" fill="#f9fafb"/>
+  <rect x="88" y="86" width="924" height="588" rx="30" fill="#ffffff" stroke="#e5e7eb" stroke-width="6"/>
+  <rect x="148" y="150" width="360" height="70" rx="18" fill="#0f172a"/>
+  <rect x="148" y="260" width="804" height="34" rx="17" fill="#e5e7eb"/>
+  <rect x="148" y="334" width="610" height="34" rx="17" fill="#e5e7eb"/>
+  <rect x="148" y="408" width="710" height="34" rx="17" fill="#e5e7eb"/>
+  <circle cx="830" cy="542" r="84" fill="#c29d46"/>
+  <path d="M790 542l28 28 58-70" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="328" y="201" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-size="32" font-weight="800" fill="#fff">Planning Roadmap</text>
+</svg>

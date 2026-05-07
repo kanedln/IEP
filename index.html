@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
 
-<!-- Google tag (gtag.js) -->
+<!-- Google Analytics (gtag.js): intentional production measurement for immersionedpartners.com; privacy/compliance owner must keep this ID documented with consent and policy disclosures. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GT8C5V9LDG"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
 
     <style>
         /* ======================= RESET & CORE ======================= */
@@ -257,7 +257,7 @@
             top: 20%;
             width: 600px;
             height: 600px;
-            background-image: url("https://i.postimg.cc/tRv1d680/Untitled-design-(1).png");
+            background-image: url("assets/images/iep-logo-mark.svg");
             background-size: contain;
             background-repeat: no-repeat;
             opacity: 0.03; /* Very subtle */
@@ -813,7 +813,7 @@
             <div class="nav-wrapper">
                 <a href="#" class="logo">
                     <!-- Increased Logo Size -->
-                    <img src="https://i.postimg.cc/d11fsGDP/Untitled-design.png" alt="IEP" class="logo-img">
+                    <img src="assets/images/iep-logo.svg" alt="IEP" class="logo-img">
                     <span class="logo-text">IEP</span>
                 </a>
 
@@ -853,7 +853,7 @@
                         </div>
                     </div>
                     <div class="hero-image-wrapper reveal">
-                        <img src="https://i.postimg.cc/wxSjJ4yG/Gemini-Generated-Image-te7jk4te7jk4te7j.png" alt="Classroom " class="hero-image">
+                        <img src="assets/images/hero-classroom.svg" alt="Multilingual classroom collaboration" class="hero-image">
                     </div>
                 </div>
             </div>
@@ -877,7 +877,7 @@
             <div class="container">
                 <div class="director-layout">
                     <div class="director-img-wrapper reveal">
-                        <img src="https://i.postimg.cc/ryWCFHb3/kane-Aus-Photo.jpg” alt="Executive Director" class="director-img">
+                        <img src="assets/images/kane-aus-photo.svg" alt="Executive Director" class="director-img">
                     </div>
                     <div class="quote-wrapper reveal">
                         <h2>"Language is the architecture of opportunity."</h2>
@@ -911,7 +911,7 @@
                         </div>
                     </div>
                     <div class="service-media">
-                        <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=2070&auto=format&fit=crop" alt="Planning" class="service-image">
+                        <img src="assets/images/service-planning.svg" alt="Planning" class="service-image">
                     </div>
                 </div>
 
@@ -930,7 +930,7 @@
                         </div>
                     </div>
                     <div class="service-media">
-                         <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop" alt="Training" class="service-image">
+                         <img src="assets/images/service-training.svg" alt="Training" class="service-image">
                     </div>
                 </div>
             </div>
@@ -1010,12 +1010,7 @@
                 <div class="newsletter-box reveal">
                     <h2>Stay Updated</h2>
                     <p>Join our community of educators. Get the latest research and tips delivered to your inbox.</p>
-                    <!-- 
-                        ACTION ITEM: Connect this form to an Email service.
-                        1. Create an account at Formspree.io
-                        2. Create a new form
-                        3. Paste the provided URL into the action="" attribute below
-                    -->
+                    <!-- Production Formspree endpoint: IEP-owned form id mykwwyya for newsletter submissions. -->
                     <form class="newsletter-form" action="https://formspree.io/f/mykwwyya" method="POST">
                         <input type="email" name="email" placeholder="Enter your email address" class="input-field" required>
                         <button type="submit" class="btn btn-primary">Subscribe</button>
@@ -1048,11 +1043,7 @@
                     </div>
 
                     <div class="contact-form-card reveal">
-                         <!-- 
-                            ACTION ITEM: Connect this form to a backend.
-                            1. Use a service like Netlify Forms or EmailJS.
-                            2. Add name="" attributes to inputs for data handling.
-                        -->
+                         <!-- Production Formspree endpoint: IEP-owned form id mykwwyya for contact submissions. -->
                         <form action="https://formspree.io/f/mykwwyya" method="POST">
                             <div class="form-group">
                                 <label for="name">Name</label>
@@ -1081,7 +1072,7 @@
                 <div class="footer-brand-col">
                     <!-- Added Footer Logo -->
                     <div class="footer-logo-wrapper">
-                        <img src="https://i.postimg.cc/tRv1d680/Untitled-design-(1).png" alt="IEP" class="footer-logo-img">
+                        <img src="assets/images/iep-logo-mark.svg" alt="IEP" class="footer-logo-img">
                         <span class="footer-logo-text">IEP</span>
                     </div>
                     <p class="footer-desc">Transforming education through the power of  and dual language strategies.</p>
@@ -1101,8 +1092,8 @@
                     <h4>Resources</h4>
                     <ul>
                         <!-- VIABLE EXTERNAL LINKS -->
-                        <li><a href="https://carla.umn.edu//" target="_blank">Research (CARLA)</a></li>
-                        <li><a href="https://www.cal.org/resource-center/" target="_blank">Case Studies (CAL)</a></li>
+                        <li><a href="https://carla.umn.edu/" target="_blank" rel="noopener noreferrer">Research (CARLA)</a></li>
+                        <li><a href="https://www.cal.org/resource-center/" target="_blank" rel="noopener noreferrer">Case Studies (CAL)</a></li>
                         <!-- Descriptive Tooltip Links -->
                         <li><a href="javascript:void(0)" onclick="showToast('Blog: Requires a CMS like WordPress or Contentful to publish articles.')">Blog</a></li>
                         <li><a href="https://calendly.com/kaneneubauer/30min">Events</a></li>
@@ -1112,9 +1103,9 @@
                     <h4>Social</h4>
                     <ul>
                         <!-- Generic Viable Links -->
-                        <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
-                        <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
-                        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+                        <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                        <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                     </ul>
                 </div>
             </div>
