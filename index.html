@@ -205,13 +205,14 @@
             letter-spacing: -0.02em;
         }
 
-        nav ul {
+        .desktop-nav ul {
             display: flex;
             gap: 2.5rem;
             list-style: none;
         }
 
-        nav a {
+        .desktop-nav a,
+        .mobile-nav a {
             text-decoration: none;
             color: var(--text-body);
             font-weight: 500;
@@ -219,7 +220,51 @@
             transition: color 0.3s;
         }
 
-        nav a:hover { color: var(--brand-gold); }
+        .desktop-nav a:hover,
+        .mobile-nav a:hover { color: var(--brand-gold); }
+
+        .mobile-menu-toggle {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            color: var(--text-body);
+            cursor: pointer;
+            transition: color 0.3s, border-color 0.3s;
+        }
+
+        .mobile-menu-toggle:hover,
+        .mobile-menu-toggle[aria-expanded="true"] {
+            border-color: var(--brand-gold);
+            color: var(--brand-gold);
+        }
+
+        .mobile-nav {
+            display: none;
+            margin-top: 0.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+        }
+
+        .mobile-nav ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            list-style: none;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 0.875rem 1rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .mobile-nav li:last-child a { border-bottom: none; }
 
         .header-actions {
             display: flex;
@@ -786,7 +831,11 @@
         }
 
         @media (max-width: 768px) {
-            nav { display: none; }
+            .desktop-nav { display: none; }
+            .mobile-menu-toggle { display: inline-flex; }
+            .mobile-nav.is-open { display: block; }
+            .header-actions { gap: 0.75rem; }
+            .header-actions .btn { display: none; }
             .footer-grid { grid-template-columns: 1fr; }
         }
         
@@ -817,7 +866,7 @@
                     <span class="logo-text">IEP</span>
                 </a>
 
-                <nav>
+                <nav class="desktop-nav" aria-label="Primary navigation">
                     <ul>
                         <li><a href="#solutions">Solutions</a></li>
                         <li><a href="#expertise">Expertise</a></li>
@@ -831,8 +880,20 @@
                         <i data-lucide="moon"></i>
                     </button>
                     <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Open mobile navigation" aria-expanded="false" aria-controls="mobileNav">
+                        <i data-lucide="menu"></i>
+                    </button>
                 </div>
             </div>
+
+            <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+                <ul>
+                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="#expertise">Expertise</a></li>
+                    <li><a href="#leadership">Leadership</a></li>
+                    <li><a href="#values">Values</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -1151,6 +1212,31 @@
             toggleBtn.innerHTML = `<i data-lucide="${iconName}"></i>`;
             lucide.createIcons();
         }
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+
+        function closeMobileNav() {
+            mobileNav.classList.remove('is-open');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mobileMenuToggle.setAttribute('aria-label', 'Open mobile navigation');
+            mobileMenuToggle.innerHTML = '<i data-lucide="menu"></i>';
+            lucide.createIcons();
+        }
+
+        mobileMenuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+            mobileNav.classList.toggle('is-open', !isOpen);
+            mobileMenuToggle.setAttribute('aria-expanded', String(!isOpen));
+            mobileMenuToggle.setAttribute('aria-label', isOpen ? 'Open mobile navigation' : 'Close mobile navigation');
+            mobileMenuToggle.innerHTML = `<i data-lucide="${isOpen ? 'menu' : 'x'}"></i>`;
+            lucide.createIcons();
+        });
+
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileNav);
+        });
 
         // Header Scroll Effect
         const header = document.getElementById('header');
